@@ -11,6 +11,8 @@ interface LogEntry {
   message: string;
 }
 
+type LogTemplate = Omit<LogEntry, 'id' | 'timestamp'>;
+
 export function TelemetryFeed({ demoState }: TelemetryFeedProps) {
   const [logs, setLogs] = useState<LogEntry[]>([]);
 
@@ -19,30 +21,30 @@ export function TelemetryFeed({ demoState }: TelemetryFeedProps) {
       const now = new Date();
       const timestamp = now.toLocaleTimeString();
 
-      const normalLogs = [
-        { level: 'info' as const, message: 'User authentication successful' },
-        { level: 'info' as const, message: 'Query executed successfully (12ms)' },
-        { level: 'info' as const, message: 'Payment processed' },
-        { level: 'info' as const, message: 'Health check passed' },
+      const normalLogs: LogTemplate[] = [
+        { level: 'info', message: 'User authentication successful' },
+        { level: 'info', message: 'Query executed successfully (12ms)' },
+        { level: 'info', message: 'Payment processed' },
+        { level: 'info', message: 'Health check passed' },
       ];
 
-      const credentialStuffingLogs = [
-        { level: 'warning' as const, message: 'High velocity login attempts detected' },
-        { level: 'error' as const, message: 'Credential stuffing attack - 2847 req/min' },
-        { level: 'error' as const, message: 'IP 203.45.167.89 blocked' },
-        { level: 'warning' as const, message: 'Isolating /auth/login endpoint' },
-        { level: 'info' as const, message: 'Rate limiting enabled' },
+      const credentialStuffingLogs: LogTemplate[] = [
+        { level: 'warning', message: 'High velocity login attempts detected' },
+        { level: 'error', message: 'Credential stuffing attack - 2847 req/min' },
+        { level: 'error', message: 'IP 203.45.167.89 blocked' },
+        { level: 'warning', message: 'Isolating /auth/login endpoint' },
+        { level: 'info', message: 'Rate limiting enabled' },
       ];
 
-      const dataExfiltrationLogs = [
-        { level: 'warning' as const, message: 'Unusual export volume detected' },
-        { level: 'error' as const, message: 'Admin account exporting 4.7 GB (47x normal)' },
-        { level: 'error' as const, message: 'Data exfiltration from 198.51.100.42' },
-        { level: 'warning' as const, message: 'Rate limiting /data/export' },
-        { level: 'info' as const, message: 'Data export isolated' },
+      const dataExfiltrationLogs: LogTemplate[] = [
+        { level: 'warning', message: 'Unusual export volume detected' },
+        { level: 'error', message: 'Admin account exporting 4.7 GB (47x normal)' },
+        { level: 'error', message: 'Data exfiltration from 198.51.100.42' },
+        { level: 'warning', message: 'Rate limiting /data/export' },
+        { level: 'info', message: 'Data export isolated' },
       ];
 
-      let logPool = normalLogs;
+      let logPool: LogTemplate[] = normalLogs;
       if (demoState === 'credential-stuffing') {
         logPool = credentialStuffingLogs;
       } else if (demoState === 'data-exfiltration') {
