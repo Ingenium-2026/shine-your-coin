@@ -64,14 +64,14 @@ export function DemoControls({ autoResponse, onAutoResponseToggle, onDemoAction,
             type="button"
             aria-pressed={autoResponse}
             onClick={onAutoResponseToggle}
-            className={`relative inline-flex w-11 h-6 shrink-0 rounded-full border transition-colors text-muted-foreground ${
+            className={`relative inline-flex items-center w-11 h-6 shrink-0 rounded-full border transition-colors ${
               autoResponse
-                ? 'bg-current/20 border-current/40'
-                : 'bg-current/10 border-current/30'
+                ? 'bg-muted-foreground/20 border-muted-foreground/40'
+                : 'bg-muted-foreground/10 border-muted-foreground/30'
             }`}
           >
             <div
-              className={`absolute top-1/2 -translate-y-1/2 left-0.5 w-5 h-5 rounded-full bg-current transition-transform ${
+              className={`absolute left-0.5 w-5 h-5 rounded-full bg-muted-foreground transition-transform ${
                 autoResponse ? 'translate-x-5' : 'translate-x-0'
               }`}
             />
