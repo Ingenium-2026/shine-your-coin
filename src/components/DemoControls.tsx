@@ -67,8 +67,8 @@ export function DemoControls({ autoResponse, onAutoResponseToggle, onDemoAction,
             }`}
           >
             <div
-              className={`absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-white border border-primary/50 transition-transform ${
-                autoResponse ? 'translate-x-5' : 'translate-x-0.5'
+              className={`absolute top-1/2 -translate-y-1/2 left-0.5 w-5 h-5 rounded-full bg-neutral-300 transition-transform ${
+                autoResponse ? 'translate-x-5' : 'translate-x-0'
               }`}
             />
           </button>
