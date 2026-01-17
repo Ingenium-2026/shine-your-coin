@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Dashboard } from './components/Dashboard';
 import { Incidents } from './components/Incidents';
 import Squares from './components/Squares';
+import NavbarDemo from './components/resizable-navbar-demo';
 
 type Screen = 'dashboard' | 'incidents';
 
@@ -67,7 +68,11 @@ function App() {
           hoverFillColor="rgba(138, 43, 226, 0.15)"
         />
       </div>
-      <div className="relative z-10">
+      
+      {/* Resizable Navbar */}
+      <NavbarDemo />
+      
+      <div className="relative z-10 pt-20">
         {screen === 'dashboard' ? (
           <Dashboard onNavigateToIncidents={navigateToIncidents} />
         ) : (
