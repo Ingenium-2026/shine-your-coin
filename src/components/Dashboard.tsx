@@ -13,7 +13,6 @@ interface DashboardProps {
 export function Dashboard({
   onNavigateToIncidents,
 }: DashboardProps) {
-  const [time, setTime] = useState(new Date());
   const [demoState, setDemoState] = useState<
     "normal" | "credential-stuffing" | "data-exfiltration"
   >("normal");
@@ -37,14 +36,6 @@ export function Dashboard({
   ]);
   const [activeIncident, setActiveIncident] =
     useState<Incident | null>(null);
-
-  useEffect(() => {
-    const interval = setInterval(
-      () => setTime(new Date()),
-      1000,
-    );
-    return () => clearInterval(interval);
-  }, []);
 
   const handleDemoAction = (action: string) => {
     if (action === "credential-stuffing") {
@@ -241,33 +232,7 @@ export function Dashboard({
   };
 
   return (
-    <div className="min-h-screen relative">
-      
-      <header className="bg-card/80 backdrop-blur-sm border-b border-border relative z-10">
-        <div className="max-w-[1400px] mx-auto px-6 py-4 flex items-center justify-between">
-          <div>
-            <h1 className="text-xl font-semibold text-white">
-              Sentira
-            </h1>
-            <p className="text-sm text-neutral-300">
-              Cyber Resilience Platform
-            </p>
-          </div>
-
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-              <span className="text-sm text-neutral-300">
-                Connected
-              </span>
-            </div>
-            <div className="text-sm text-neutral-300">
-              {time.toLocaleTimeString()}
-            </div>
-          </div>
-        </div>
-      </header>
-
+    <div className="relative">
       <div className="max-w-[1400px] mx-auto px-6 py-8 space-y-8 relative z-10">
         {/* Service Status Grid */}
         <section>

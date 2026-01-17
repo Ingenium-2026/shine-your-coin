@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Dashboard } from './components/Dashboard';
 import { Incidents } from './components/Incidents';
 import Squares from './components/Squares';
-import NavbarDemo from './components/resizable-navbar-demo';
+import { SentiraNavbar } from './components/SentiraNavbar';
 
 type Screen = 'dashboard' | 'incidents';
 
@@ -69,8 +69,12 @@ function App() {
         />
       </div>
       
-      {/* Resizable Navbar */}
-      <NavbarDemo />
+      {/* Resizable Sentira Navbar */}
+      <SentiraNavbar 
+        currentScreen={screen}
+        onNavigateToDashboard={navigateToDashboard}
+        onNavigateToIncidents={() => navigateToIncidents()}
+      />
       
       <div className="relative z-10 pt-20">
         {screen === 'dashboard' ? (
