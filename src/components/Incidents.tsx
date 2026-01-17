@@ -138,21 +138,21 @@ export function Incidents({ onNavigateToDashboard, selectedIncident }: Incidents
   });
 
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <div className="min-h-screen">
       {/* Header */}
-      <header className="bg-white border-b border-neutral-200">
+      <header className="bg-card/80 backdrop-blur-sm border-b border-border">
         <div className="max-w-[1400px] mx-auto px-6 py-4 flex items-center gap-6">
           <button
             onClick={onNavigateToDashboard}
-            className="flex items-center gap-2 px-3 py-1.5 text-sm text-neutral-600 hover:text-neutral-900 border border-neutral-300 rounded-md hover:border-neutral-400 transition-colors"
+            className="flex items-center gap-2 px-3 py-1.5 text-sm text-neutral-300 hover:text-white border border-border rounded-md hover:border-primary/50 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back</span>
           </button>
           
           <div>
-            <h1 className="text-xl font-semibold text-neutral-900">Incidents</h1>
-            <p className="text-sm text-neutral-500">{filteredIncidents.length} total incidents</p>
+            <h1 className="text-xl font-semibold text-white">Incidents</h1>
+            <p className="text-sm text-neutral-400">{filteredIncidents.length} total incidents</p>
           </div>
         </div>
       </header>
@@ -169,20 +169,20 @@ export function Incidents({ onNavigateToDashboard, selectedIncident }: Incidents
                 placeholder="Search incidents..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 text-sm bg-white border border-neutral-300 rounded-md focus:outline-none focus:border-neutral-400"
+                className="w-full pl-10 pr-4 py-2 text-sm bg-card/80 backdrop-blur-sm border border-border rounded-md focus:outline-none focus:border-primary/50 text-white placeholder:text-neutral-500"
               />
             </div>
 
             {/* Incidents Table */}
-            <div className="bg-white border border-neutral-200 rounded-lg overflow-hidden">
+            <div className="bg-card/80 backdrop-blur-sm border border-border rounded-lg overflow-hidden">
               <table className="w-full">
-                <thead className="bg-neutral-50 border-b border-neutral-200">
+                <thead className="bg-secondary border-b border-border">
                   <tr>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-neutral-500 uppercase">Severity</th>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-neutral-500 uppercase">Type</th>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-neutral-500 uppercase">Status</th>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-neutral-500 uppercase">Source</th>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-neutral-500 uppercase">Started</th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-neutral-400 uppercase">Severity</th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-neutral-400 uppercase">Type</th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-neutral-400 uppercase">Status</th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-neutral-400 uppercase">Source</th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-neutral-400 uppercase">Started</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -190,33 +190,33 @@ export function Incidents({ onNavigateToDashboard, selectedIncident }: Incidents
                     <tr
                       key={incident.id}
                       onClick={() => setSelectedIncidentState(incident)}
-                      className={`border-b border-neutral-100 cursor-pointer hover:bg-neutral-50 transition-colors ${
-                        selectedIncidentState?.id === incident.id ? 'bg-neutral-50' : ''
+                      className={`border-b border-border/50 cursor-pointer hover:bg-secondary/50 transition-colors ${
+                        selectedIncidentState?.id === incident.id ? 'bg-secondary/50' : ''
                       }`}
                     >
                       <td className="px-4 py-3">
                         <span className={`inline-block px-2 py-0.5 text-xs font-medium rounded ${
                           incident.severity === 'SEV1'
-                            ? 'bg-red-100 text-red-700'
+                            ? 'bg-red-500/20 text-red-400'
                             : incident.severity === 'SEV2'
-                            ? 'bg-amber-100 text-amber-700'
-                            : 'bg-blue-100 text-blue-700'
+                            ? 'bg-amber-500/20 text-amber-400'
+                            : 'bg-blue-500/20 text-blue-400'
                         }`}>
                           {incident.severity}
                         </span>
                       </td>
-                      <td className="px-4 py-3 text-sm text-neutral-900">{incident.type}</td>
+                      <td className="px-4 py-3 text-sm text-white">{incident.type}</td>
                       <td className="px-4 py-3">
                         <span className={`text-xs ${
-                          incident.status === 'Active' ? 'text-red-600' :
-                          incident.status === 'Contained' ? 'text-amber-600' :
-                          'text-emerald-600'
+                          incident.status === 'Active' ? 'text-red-400' :
+                          incident.status === 'Contained' ? 'text-amber-400' :
+                          'text-emerald-400'
                         }`}>
                           {incident.status}
                         </span>
                       </td>
-                      <td className="px-4 py-3 text-sm font-mono text-neutral-600">{incident.sourceIp}</td>
-                      <td className="px-4 py-3 text-sm text-neutral-600">
+                      <td className="px-4 py-3 text-sm font-mono text-neutral-300">{incident.sourceIp}</td>
+                      <td className="px-4 py-3 text-sm text-neutral-400">
                         {new Date(incident.startTime).toLocaleTimeString()}
                       </td>
                     </tr>

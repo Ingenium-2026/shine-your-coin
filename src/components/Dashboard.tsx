@@ -4,7 +4,6 @@ import { DemoControls } from "./DemoControls";
 import { MetricsGrid } from "./MetricsGrid";
 import { IncidentHighlight } from "./IncidentHighlight";
 import { TelemetryFeed } from "./TelemetryFeed";
-import Squares from "./Squares";
 import type { Incident, ServiceStatus } from "../App";
 
 interface DashboardProps {
@@ -242,17 +241,15 @@ export function Dashboard({
   };
 
   return (
-    <div className="min-h-screen bg-neutral-50 relative">
-      <Squares hoverColor="#060010" speed={0.2} />
+    <div className="min-h-screen relative">
       
-      {/* Header */}
-      <header className="bg-white border-b border-neutral-200 relative z-10">
+      <header className="bg-card/80 backdrop-blur-sm border-b border-border relative z-10">
         <div className="max-w-[1400px] mx-auto px-6 py-4 flex items-center justify-between">
           <div>
-            <h1 className="text-xl font-semibold text-neutral-900">
+            <h1 className="text-xl font-semibold text-white">
               Sentira
             </h1>
-            <p className="text-sm text-neutral-500">
+            <p className="text-sm text-neutral-300">
               Cyber Resilience Platform
             </p>
           </div>
@@ -260,11 +257,11 @@ export function Dashboard({
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-              <span className="text-sm text-neutral-600">
+              <span className="text-sm text-neutral-300">
                 Connected
               </span>
             </div>
-            <div className="text-sm text-neutral-500">
+            <div className="text-sm text-neutral-300">
               {time.toLocaleTimeString()}
             </div>
           </div>
@@ -274,7 +271,7 @@ export function Dashboard({
       <div className="max-w-[1400px] mx-auto px-6 py-8 space-y-8 relative z-10">
         {/* Service Status Grid */}
         <section>
-          <h2 className="text-sm font-medium text-neutral-500 mb-4 uppercase tracking-wide">
+          <h2 className="text-sm font-medium text-neutral-300 mb-4 uppercase tracking-wide">
             Service Status
           </h2>
           <div className="grid grid-cols-3 gap-4">
@@ -299,8 +296,8 @@ export function Dashboard({
         />
 
         {!autoResponse && (
-          <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg">
-            <p className="text-sm text-amber-900">
+          <div className="p-4 bg-amber-900/30 border border-amber-600/50 rounded-lg">
+            <p className="text-sm text-amber-200">
               ⚠️ Human approval required for containment actions
             </p>
           </div>

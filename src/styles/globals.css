@@ -2,81 +2,46 @@
 
 :root {
   --font-size: 16px;
-  --background: #ffffff;
-  --foreground: oklch(0.145 0 0);
-  --card: #ffffff;
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: #030213;
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0.0058 264.53);
-  --secondary-foreground: #030213;
-  --muted: #ececf0;
-  --muted-foreground: #717182;
-  --accent: #e9ebef;
-  --accent-foreground: #030213;
-  --destructive: #d4183d;
+  --background: rgb(6, 0, 16);
+  --foreground: #ffffff;
+  --card: rgba(10, 2, 20, 0.8);
+  --card-foreground: #ffffff;
+  --popover: hsl(260, 80%, 6%);
+  --popover-foreground: #ffffff;
+  --primary: hsl(250, 100%, 65%);
+  --primary-foreground: #ffffff;
+  --secondary: rgba(40, 20, 80, 0.6);
+  --secondary-foreground: #ffffff;
+  --muted: rgba(30, 15, 60, 0.6);
+  --muted-foreground: #d4d4d4;
+  --accent: rgba(100, 80, 200, 0.2);
+  --accent-foreground: #ffffff;
+  --destructive: hsl(0, 72%, 51%);
   --destructive-foreground: #ffffff;
-  --border: rgba(0, 0, 0, 0.1);
+  --border: rgba(100, 80, 200, 0.2);
   --input: transparent;
-  --input-background: #f3f3f5;
-  --switch-background: #cbced4;
+  --input-background: rgba(40, 20, 80, 0.5);
+  --switch-background: hsl(260, 40%, 25%);
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --ring: hsl(250, 100%, 65%);
+  --chart-1: hsl(250, 100%, 65%);
+  --chart-2: hsl(280, 100%, 65%);
+  --chart-3: hsl(200, 100%, 50%);
+  --chart-4: hsl(150, 80%, 50%);
+  --chart-5: hsl(40, 100%, 60%);
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #030213;
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: rgba(10, 2, 20, 0.9);
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: hsl(250, 100%, 65%);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(100, 80, 200, 0.2);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(100, 80, 200, 0.2);
+  --sidebar-ring: hsl(250, 100%, 65%);
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
-}
+/* Dark theme is always active for this cybersecurity dashboard */
 
 @theme inline {
   --color-background: var(--background);
@@ -124,8 +89,9 @@
     @apply border-border outline-ring/50;
   }
 
-  body {
-    @apply bg-background text-foreground;
+  html, body {
+    background-color: rgb(6, 0, 16);
+    color: var(--foreground);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

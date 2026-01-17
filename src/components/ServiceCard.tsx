@@ -13,34 +13,34 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
     switch (status) {
       case 'Healthy':
         return {
-          border: 'border-neutral-200',
-          bg: 'bg-white',
-          statusColor: 'text-emerald-600',
+          border: 'border-emerald-500/30',
+          bg: 'bg-card/80 backdrop-blur-sm',
+          statusColor: 'text-emerald-400',
           dotColor: 'bg-emerald-500',
           lineColor: '#10b981'
         };
       case 'Suspicious':
         return {
-          border: 'border-amber-200',
-          bg: 'bg-amber-50',
-          statusColor: 'text-amber-700',
+          border: 'border-amber-500/30',
+          bg: 'bg-amber-900/20 backdrop-blur-sm',
+          statusColor: 'text-amber-400',
           dotColor: 'bg-amber-500',
           lineColor: '#f59e0b'
         };
       case 'Isolated':
         return {
-          border: 'border-red-200',
-          bg: 'bg-red-50',
-          statusColor: 'text-red-700',
+          border: 'border-red-500/30',
+          bg: 'bg-red-900/20 backdrop-blur-sm',
+          statusColor: 'text-red-400',
           dotColor: 'bg-red-500',
           lineColor: '#ef4444'
         };
       default:
         return {
-          border: 'border-neutral-200',
-          bg: 'bg-white',
-          statusColor: 'text-neutral-600',
-          dotColor: 'bg-neutral-400',
+          border: 'border-border',
+          bg: 'bg-card/80 backdrop-blur-sm',
+          statusColor: 'text-muted-foreground',
+          dotColor: 'bg-muted-foreground',
           lineColor: '#6b7280'
         };
     }
@@ -52,7 +52,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
     <div className={`p-5 rounded-lg border ${style.border} ${style.bg}`}>
       <div className="flex items-start justify-between mb-4">
         <div>
-          <h3 className="font-medium text-neutral-900 mb-1">{service.name}</h3>
+          <h3 className="font-medium text-white mb-1">{service.name}</h3>
           <div className="flex items-center gap-2">
             <div className={`w-1.5 h-1.5 rounded-full ${style.dotColor}`} />
             <span className={`text-sm ${style.statusColor}`}>
@@ -78,8 +78,8 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
       </div>
 
       {service.status === 'Isolated' && (
-        <div className="mt-4 pt-4 border-t border-red-200">
-          <p className="text-xs text-red-700">
+        <div className="mt-4 pt-4 border-t border-red-500/30">
+          <p className="text-xs text-red-400">
             Component isolated • Other services operational
           </p>
         </div>

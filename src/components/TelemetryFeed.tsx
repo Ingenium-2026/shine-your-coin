@@ -69,22 +69,22 @@ export function TelemetryFeed({ demoState }: TelemetryFeedProps) {
   const getLevelStyle = (level: string) => {
     switch (level) {
       case 'error':
-        return 'text-red-600';
+        return 'text-red-400';
       case 'warning':
-        return 'text-amber-600';
+        return 'text-amber-400';
       default:
-        return 'text-neutral-600';
+        return 'text-neutral-400';
     }
   };
 
   return (
     <section>
-      <h2 className="text-sm font-medium text-neutral-500 mb-4 uppercase tracking-wide flex items-center gap-2">
+      <h2 className="text-sm font-medium text-neutral-300 mb-4 uppercase tracking-wide flex items-center gap-2">
         <span>Activity Feed</span>
         <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
       </h2>
 
-      <div className="bg-white border border-neutral-200 rounded-lg p-4 h-64 overflow-auto">
+      <div className="bg-card/80 backdrop-blur-sm border border-border rounded-lg p-4 h-64 overflow-auto">
         <div className="space-y-2 font-mono text-xs">
           {logs.map((log) => (
             <div key={log.id} className="flex items-start gap-3">
@@ -92,7 +92,7 @@ export function TelemetryFeed({ demoState }: TelemetryFeedProps) {
               <span className={`font-medium uppercase ${getLevelStyle(log.level)} whitespace-nowrap`}>
                 [{log.level}]
               </span>
-              <span className="text-neutral-700">{log.message}</span>
+              <span className="text-white">{log.message}</span>
             </div>
           ))}
         </div>

@@ -62,9 +62,9 @@ function App() {
         <Squares
           direction="diagonal"
           speed={0.3}
-          borderColor="rgba(59, 130, 246, 0.15)"
+          borderColor="rgba(138, 43, 226, 0.15)"
           squareSize={50}
-          hoverFillColor="rgba(59, 130, 246, 0.1)"
+          hoverFillColor="rgba(138, 43, 226, 0.15)"
         />
       </div>
       <div className="relative z-10">
