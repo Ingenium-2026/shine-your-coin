@@ -4,14 +4,17 @@ interface TelemetryFeedProps {
   demoState: 'normal' | 'credential-stuffing' | 'data-exfiltration';
 }
 
-interface LogEntry {
+type LogLevel = 'info' | 'warning' | 'error';
+
+type LogTemplate = {
+  level: LogLevel;
+  message: string;
+};
+
+interface LogEntry extends LogTemplate {
   id: string;
   timestamp: string;
-  level: 'info' | 'warning' | 'error';
-  message: string;
 }
-
-type LogTemplate = Omit<LogEntry, 'id' | 'timestamp'>;
 
 export function TelemetryFeed({ demoState }: TelemetryFeedProps) {
   const [logs, setLogs] = useState<LogEntry[]>([]);
@@ -44,12 +47,12 @@ export function TelemetryFeed({ demoState }: TelemetryFeedProps) {
         { level: 'info', message: 'Data export isolated' },
       ];
 
-      let logPool: LogTemplate[] = normalLogs;
-      if (demoState === 'credential-stuffing') {
-        logPool = credentialStuffingLogs;
-      } else if (demoState === 'data-exfiltration') {
-        logPool = dataExfiltrationLogs;
-      }
+      const logPool: LogTemplate[] =
+        demoState === 'credential-stuffing'
+          ? credentialStuffingLogs
+          : demoState === 'data-exfiltration'
+            ? dataExfiltrationLogs
+            : normalLogs;
 
       const log = logPool[Math.floor(Math.random() * logPool.length)];
 
