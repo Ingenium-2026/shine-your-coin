@@ -59,26 +59,26 @@ export function DemoControls({ autoResponse, onAutoResponseToggle, onDemoAction,
 
       <div className="flex items-center justify-between pt-4 border-t border-border">
         <div className="flex items-center gap-3">
-          <span className="text-sm text-muted-foreground leading-none">Auto Response</span>
+          <span className="text-sm text-neutral-400 leading-none">Auto Response</span>
           <button
             type="button"
             aria-pressed={autoResponse}
             onClick={onAutoResponseToggle}
             className={`relative inline-flex items-center w-11 h-6 shrink-0 rounded-full border transition-colors ${
               autoResponse
-                ? 'bg-muted-foreground/20 border-muted-foreground/40'
-                : 'bg-muted-foreground/10 border-muted-foreground/30'
+                ? 'bg-neutral-500/30 border-neutral-400/50'
+                : 'bg-neutral-600/20 border-neutral-500/30'
             }`}
           >
             <div
-              className={`absolute left-0.5 w-5 h-5 rounded-full bg-muted-foreground transition-transform ${
+              className={`absolute left-0.5 w-5 h-5 rounded-full bg-neutral-400 transition-transform ${
                 autoResponse ? 'translate-x-5' : 'translate-x-0'
               }`}
             />
           </button>
           <span
             className={`text-sm font-medium leading-none ${
-              autoResponse ? 'text-foreground' : 'text-muted-foreground'
+              autoResponse ? 'text-white' : 'text-neutral-400'
             }`}
           >
             {autoResponse ? 'ON' : 'OFF'}
