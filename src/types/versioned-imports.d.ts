@@ -157,8 +157,5 @@ declare module "vaul@1.1.2" {
   export * from "vaul";
 }
 
-// Path-alias shims (Vite resolves @/* via vite.config.ts; this makes TS understand it too)
-declare module "@/components/ui/utils" {
-  export * from "../components/ui/utils";
-}
+// end of version-pinned import shims
 
