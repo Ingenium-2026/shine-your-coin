@@ -1,10 +1,7 @@
 "use client";
+
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import {
   motion,
@@ -12,8 +9,12 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "framer-motion";
-
 import React, { useRef, useState } from "react";
+
+/** Merge Tailwind classes with clsx */
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -198,7 +199,6 @@ export const MobileNavMenu = ({
   children,
   className,
   isOpen,
-  onClose,
 }: MobileNavMenuProps) => {
   return (
     <AnimatePresence>
