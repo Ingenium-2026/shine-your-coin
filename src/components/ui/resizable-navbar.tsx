@@ -1,5 +1,3 @@
-"use client";
-
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { IconMenu2, IconX } from "@tabler/icons-react";
